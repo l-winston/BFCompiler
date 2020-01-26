@@ -1,5 +1,6 @@
 def main():
-    print("Hello World");
+    str = input("Enter Command:\n")
+    print(str, end="\n")
 
 
 if __name__ == "__main__":
