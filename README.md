@@ -1,5 +1,8 @@
 # BFCompiler
-A compiler for the notorious esoteric programming language, BrainF*ck 
+A compiler for the notorious esoteric programming language, [BrainF*ck](https://en.wikipedia.org/wiki/Brainfuck) 
+
+
+Here is a table of each of the valid characters in BrainF*ck and their corresponding meanings. 
 
 | Character        | Meaning           |
 | ------------- |---------------|
