@@ -13,7 +13,7 @@ def main():
 
     tabs = 0;
     for line_num, line in enumerate(filein):
-        print(str(line_num+1))
+        print("Translating line " + str(line_num+1) + "...")
         for i in range(len(line)):
             c = line[i]
 
@@ -28,7 +28,7 @@ def main():
             elif c == "-":
                 f.write(prefix + "memory[index]-=1\n")
             elif c == ".":
-                f.write(prefix + "print(memory[index])\n")
+                f.write(prefix + "print(chr(memory[index]), end=\"\")\n")
             elif c == ",":
                 f.write(prefix + "memory[index]=int(input())\n")
             elif c == "[":
@@ -40,7 +40,7 @@ def main():
     #f.write("print(memory)\n")
 
     f.close()
-
+    print("Executing compiled.py...")
     os.system("python compiled.py")
 
 
