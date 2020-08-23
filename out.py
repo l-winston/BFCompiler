@@ -1,6 +1,6 @@
 import numpy as np
 MEMORY_LENGTH = 30000
-memory = np.zeros((MEMORY_LENGTH), dtype=np.int8)
+memory = np.zeros((MEMORY_LENGTH), dtype=int)
 index = 0
 memory[index]+=1
 memory[index]+=1

@@ -1,6 +1,6 @@
 import os
 
-startup = "import numpy as np\nMEMORY_LENGTH = 30000\nmemory = np.zeros((MEMORY_LENGTH), dtype=np.int8)\nindex = 0\n"
+startup = "import numpy as np\nMEMORY_LENGTH = 30000\nmemory = np.zeros((MEMORY_LENGTH), dtype=int)\nindex = 0\n"
 
 def main():
     file_in = open("in.txt", "r")
@@ -35,8 +35,8 @@ def main():
                 tabs -= 1
 
     file_out.close()
-    print("Executing file_out.py...")
-    os.system("python file_out.py")
+    print("Executing out.py...")
+    os.system("python out.py")
 
 
 if __name__ == "__main__":
