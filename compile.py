@@ -1,11 +1,25 @@
 import os
+import argparse
 
 startup = "import numpy as np\nMEMORY_LENGTH = 30000\nmemory = np.zeros((MEMORY_LENGTH), dtype=int)\nindex = 0\n"
 
-def main():
-    file_in = open("in.txt", "r")
+def parse_args():
+    parser = argparse.ArgumentParser(description='Compile BrainF*ck to Python.')
+    parser.add_argument('in_file', nargs='?', default="in.txt")
+    parser.add_argument('out_file', nargs='?', default="out.py")
+    parser.add_argument('-r', action='store_true')
 
-    file_out = open("out.py", "w")
+    args = parser.parse_args()
+
+    compile(args.in_file, args.out_file)
+
+    if args.r:
+        run(args.out_file)
+
+def compile(in_filepath, out_filepath):
+    file_in = open(in_filepath, "r")
+
+    file_out = open(out_filepath, "w")
     file_out.truncate(0)
     file_out.write(startup)
 
@@ -35,9 +49,10 @@ def main():
                 tabs -= 1
 
     file_out.close()
-    print("Executing out.py...")
-    os.system("python out.py")
 
+def run(filepath):
+    print(f"Executing {filepath}...")
+    os.system(f"python {filepath}")
 
 if __name__ == "__main__":
-    main()
+    parse_args()
