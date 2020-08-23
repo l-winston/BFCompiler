@@ -2,7 +2,6 @@ import os
 
 startup = """import numpy as np\nMEMORY_LENGTH = 30000\nmemory = np.zeros((MEMORY_LENGTH), dtype=np.int8)\nindex = 0\n"""
 
-
 def main():
     filein = open("input.txt", "r")
 
@@ -36,8 +35,6 @@ def main():
                 tabs += 1
             elif c == "]":
                 tabs -= 1
-
-    #f.write("print(memory)\n")
 
     f.close()
     print("Executing compiled.py...")
