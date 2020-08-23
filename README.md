@@ -14,7 +14,23 @@ Here is a table of each of the valid characters in BrainF*ck and their correspon
 | [ | if the byte at the data pointer is zero, then instead of moving the instruction pointer forward to the next command, jump it forward to the command after the matching ] command. |
 | ] | if the byte at the data pointer is nonzero, then instead of moving the instruction pointer forward to the next command, jump it back to the command after the matching [ command. |
 
+
+## Usage
+
+```bash
+compile.py [-h] [-r] [in_file] [out_file]
+```
+- input filepath defaults to "in.txt"
+- output filepath defaults to "out.py"
+- does not run compiled code without "-r"
+
 ## Example
+
+```bash
+(base) l-winston@Winstons-MacBook-Pro BFCompiler % python compile.py in.txt out.py -r
+Executing out.py...
+Hello World!
+```
 
 `in.txt`
 
@@ -159,10 +175,4 @@ memory[index]+=1
 print(chr(memory[index]), end="")
 index+=1
 print(chr(memory[index]), end="")
-```
-
-```bash
-(base) l-winston@Winstons-MacBook-Pro BFCompiler % python compile.py
-Executing out.py...
-Hello World!
 ```
