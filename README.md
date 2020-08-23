@@ -1,7 +1,18 @@
 # BFCompiler
 A compiler for the notorious esoteric programming language, [BrainF*ck](https://en.wikipedia.org/wiki/Brainfuck) 
 
+Here is a table of each of the valid characters in BrainF*ck and their corresponding meanings. 
 
+| Character        | Meaning           |
+| ------------- |---------------|
+| > | increment the data pointer (to point to the next cell to the right).|
+| < | decrement the data pointer (to point to the next cell to the left). |
+| + | increment (increase by one) the byte at the data pointer. |
+| - | decrement (decrease by one) the byte at the data pointer. |
+| . | output the byte at the data pointer. |
+| , | accept one byte of input, storing its value in the byte at the data pointer. |
+| [ | if the byte at the data pointer is zero, then instead of moving the instruction pointer forward to the next command, jump it forward to the command after the matching ] command. |
+| ] | if the byte at the data pointer is nonzero, then instead of moving the instruction pointer forward to the next command, jump it back to the command after the matching [ command. |
 
 ## Example
 
@@ -36,7 +47,7 @@ A compiler for the notorious esoteric programming language, [BrainF*ck](https://
 ```python
 import numpy as np
 MEMORY_LENGTH = 30000
-memory = np.zeros((MEMORY_LENGTH), dtype=np.int8)
+memory = np.zeros((MEMORY_LENGTH), dtype=int)
 index = 0
 memory[index]+=1
 memory[index]+=1
@@ -150,17 +161,8 @@ index+=1
 print(chr(memory[index]), end="")
 ```
 
-
-Here is a table of each of the valid characters in BrainF*ck and their corresponding meanings. 
-
-| Character        | Meaning           |
-| ------------- |---------------|
-| > | increment the data pointer (to point to the next cell to the right).|
-| < | decrement the data pointer (to point to the next cell to the left). |
-| + | increment (increase by one) the byte at the data pointer. |
-| - | decrement (decrease by one) the byte at the data pointer. |
-| . | output the byte at the data pointer. |
-| , | accept one byte of input, storing its value in the byte at the data pointer. |
-| [ | if the byte at the data pointer is zero, then instead of moving the instruction pointer forward to the next command, jump it forward to the command after the matching ] command. |
-| ] | if the byte at the data pointer is nonzero, then instead of moving the instruction pointer forward to the next command, jump it back to the command after the matching [ command. |
-
+```bash
+(base) l-winston@Winstons-MacBook-Pro BFCompiler % python compile.py
+Executing out.py...
+Hello World!
+```
